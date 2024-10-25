@@ -1,9 +1,9 @@
 import { fontFamilies } from "./fontFamily.js";
 
 const presentCount = document.getElementById("count");
-const mainContent = document.getElementById("mainContent");
-const bodyContent = document.getElementById("bodyContent");
 const button = document.getElementById("button");
+const mainContent = document.main;
+const bodyContent = document.body;
 let accumulator = { count: 0 };
 
 function generateColor() {
@@ -31,12 +31,11 @@ function changeStyle() {
     fontFamilies[Math.floor(Math.random() * fontFamilies.length)];
 }
 
-function pressed() {
+function buttonPressed() {
   accumulator.count++;
   changeColor();
   changeStyle();
   button.className = `button-${Math.floor(Math.random() * 9) + 1}`;
-  console.log(button.className);
 }
 
-button.addEventListener("click", pressed);
+button.addEventListener("click", buttonPressed);
